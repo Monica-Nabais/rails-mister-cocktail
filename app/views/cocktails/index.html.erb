@@ -1,0 +1,24 @@
+<div class="home-banner">
+  <div class="banner-content">
+    <h1>Fancy cocktails</h1>
+    <p>For you to enjoy those last minutes before livecode</p>
+  </div>
+</div>
+<div class="row cards">
+  <% @cocktails.each do |cocktail| %>
+     <div class="card col-xs-6 col-sm-3">
+      <h2><strong>
+        <%= cocktail.name %>
+      </strong></h2>
+      <div class="icons">
+        <%= link_to cocktail_path(cocktail) do %>
+          <i class="fas fa-glass-martini fa-2x" style="color:white"></i>
+        <% end %>
+        <%= link_to cocktail_path(cocktail), method: :delete do %>
+          <i class="far fa-trash-alt fa-2x" style="color:white"></i>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class='button'><%= link_to 'New cocktail', new_cocktail_path, class: "btn btn-success" %></div>
