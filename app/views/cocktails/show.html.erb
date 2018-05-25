@@ -1,13 +1,35 @@
-<h2><%= @cocktail.name %></h2>
-
+<div class="cocktail-header">
+  <h2><%= @cocktail.name %></h2>
+</div>
+<div class="ingredients-body">
 <h3>Ingredients:</h3>
 
-<% @cocktail.doses.each do |dose| %>
-<p>
-  <%= dose.description %> -
-  <%= dose.ingredient.name %>
-  <%= link_to 'Delete ingredient', dose_path(dose), method: :delete %>
-</p>
+
+<div class="ingredients-display">
+  <div class="grid">
+    <% @cocktail.doses.each do |dose| %>
+      <div class="element">
+        <%= dose.ingredient.name %>
+      </div>
+      <div class="element">
+        <%= dose.description %>
+      </div>
+      <div class="element">
+        <%= link_to dose_path(dose), method: :delete do%>
+        <i class="far fa-trash-alt" style="color:black"></i>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="add-ingredient">
+  <%= link_to new_cocktail_dose_path(@cocktail) do %>
+    <i class="fas fa-plus-circle fa-2x" style="color:black"></i>
+  <% end %>
+  </div>
+</div>
+</div>
+<div class="arrow-left">
+<%= link_to cocktails_path do %>
+  <i class="fas fa-arrow-left" style="color:black"></i>
 <% end %>
-<p><%= link_to 'Add ingredient', new_cocktail_dose_path(@cocktail) %></p>
-<p><%= link_to 'Back', cocktails_path %></p>
+</div>

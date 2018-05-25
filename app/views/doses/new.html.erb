@@ -1,7 +1,13 @@
-<h2>Add an ingredient to your cocktail:</h2>
-
+<div class="add-new">
+<h2>Add an ingredient:</h2>
+<div class="form">
 <%= simple_form_for [@cocktail, @dose] do |f| %>
   <%= f.input :description %>
   <%= f.association :ingredient, value_method: :id, label_method: :name %>
-  <%= f.button :submit %>
+  <%= f.button :submit, class: "btn btn-success"%>
 <% end %>
+</div>
+<%= link_to cocktails_path do %>
+  <i class="fas fa-arrow-left" style="color:black"></i>
+<% end %>
+</div>
