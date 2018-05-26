@@ -1,6 +1,14 @@
 .cocktail-header {
-  background-color: #99ddcc;
-  height: 200px;
+  background-size: cover;
+  height: 400px;
   text-align: center;
   padding-top: 50px;
+  h1 {
+    color: white;
+    font-weight: bolder;
+    padding-bottom: 50px;
+  }
+  a {
+    color: white;
+  }
 }

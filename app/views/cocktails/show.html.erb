@@ -1,5 +1,8 @@
-<div class="cocktail-header">
-  <h2><%= @cocktail.name %></h2>
+<div class="cocktail-header" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<% if @cocktail.photo.present? %><%= cl_image_path @cocktail.photo, crop: :fill %><% end %>'); background-position: 50% 50%;">
+  <h1><%= @cocktail.name %></h1>
+  <div class="btn btn-success">
+  <%= link_to 'Edit', edit_cocktail_path(@cocktail)%>
+  </div>
 </div>
 <div class="ingredients-body">
 <h3>Ingredients:</h3>
